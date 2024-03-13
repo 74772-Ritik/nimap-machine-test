@@ -1,10 +1,16 @@
 const express = require('express');
 const db = require('./db.js');
 const routes = require('./routes.js');
+var cors = require('cors')
+
+var corsOptions = {
+  origin: 'http://localhost:5173',
+}
 
 const app = express();
 const PORT = 3000;
 
+app.use(cors(corsOptions))
 
 app.use(express.json());
 

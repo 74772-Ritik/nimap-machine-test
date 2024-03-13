@@ -54,9 +54,10 @@ router.post('/products', async (req, res) => {
 
 router.put('/products/:productId', async (req, res) => {
   const { productId } = req.params;
-  const { newName } = req.body;
+  const { name } = req.body;
+  console.log(req.body)
   try {
-    const result = await updateProduct(productId, newName);
+    const result = await updateProduct(productId, name);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
